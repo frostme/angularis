@@ -1,6 +1,16 @@
 angular.module('angularis').run(['$templateCache', function($templateCache) {
   'use strict';
 
+  $templateCache.put('templates/overlay.html',
+    "<div class='overlay' ng-class='{ \"in\": (overlayCtrl.showOverlay), \"vertical\": (!overlayCtrl.style || (overlayCtrl.style === \"vertical\")), \"horizontal\": (overlayCtrl.style === \"horizontal\") }' role='dialog'>\n" +
+    "  <div class='overlay-content'>\n" +
+    "    <div ng-transclude></div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "\n"
+  );
+
+
   $templateCache.put('templates/widget.html',
     "<div class='widget' role='tabpanel'>\n" +
     "  <ng-transclude></ng-transclude>\n" +

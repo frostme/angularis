@@ -2,6 +2,60 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var app = angular.module('angularis');
 
+function OverlayDirective(){
+  return {
+    restrict: 'E',
+    transclude: true,
+    templateUrl: 'templates/overlay.html',
+    scope: {
+      showOverlay: '=',
+      style: '=?'
+    },
+    link: function($scope, element, attrs, ctrl){
+    },
+    bindToController: true,
+    controllerAs: 'overlayCtrl',
+    controller: [function Controller(){
+      var self = this;
+    }]
+  };
+}
+
+OverlayDirective.$inject = [
+];
+
+app.directive('overlay', OverlayDirective);
+
+},{}],2:[function(require,module,exports){
+var app = angular.module('angularis');
+
+function OverlayedDirective(){
+  return {
+    restrict: 'A',
+    scope: {
+      'overlayed': '='
+    },
+    link: function($scope, element, attrs, ctrl){
+      $(element).addClass('overlayed');
+      $scope.$watch('overlayed', function(newValue){
+        if(newValue){
+          $(element).addClass('out');
+        } else {
+          $(element).removeClass('out');
+        }
+      });
+    },
+  };
+}
+
+OverlayedDirective.$inject = [
+];
+
+app.directive('overlayed', OverlayedDirective);
+
+},{}],3:[function(require,module,exports){
+var app = angular.module('angularis');
+
 function WidgetDirective(){
   return {
     restrict: 'E',
@@ -44,7 +98,7 @@ WidgetDirective.$inject = [
 
 app.directive('widget', WidgetDirective);
 
-},{}],2:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var app = angular.module('angularis');
 
 function WidgetPageDirective(){
@@ -74,7 +128,7 @@ WidgetPageDirective.$inject = [
 
 app.directive('widgetPage', WidgetPageDirective);
 
-},{}],3:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 (function(){
   'use strict';
 
@@ -90,11 +144,13 @@ app.directive('widgetPage', WidgetPageDirective);
   require('./templates.js');
 
   //directives
+  require('./directives/overlay');
+  require('./directives/overlayed');
   require('./directives/widget');
   require('./directives/widgetPage');
 }());
 
-},{"./directives/widget":1,"./directives/widgetPage":2,"./templates.js":6,"angular-animate":5}],4:[function(require,module,exports){
+},{"./directives/overlay":1,"./directives/overlayed":2,"./directives/widget":3,"./directives/widgetPage":4,"./templates.js":8,"angular-animate":7}],6:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.8
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -4235,13 +4291,23 @@ angular.module('ngAnimate', [], function initAngularHelpers() {
 
 })(window, window.angular);
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":4}],6:[function(require,module,exports){
+},{"./angular-animate":6}],8:[function(require,module,exports){
 angular.module('angularis').run(['$templateCache', function($templateCache) {
   'use strict';
+
+  $templateCache.put('templates/overlay.html',
+    "<div class='overlay' ng-class='{ \"in\": (overlayCtrl.showOverlay), \"vertical\": (!overlayCtrl.style || (overlayCtrl.style === \"vertical\")), \"horizontal\": (overlayCtrl.style === \"horizontal\") }' role='dialog'>\n" +
+    "  <div class='overlay-content'>\n" +
+    "    <div ng-transclude></div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "\n"
+  );
+
 
   $templateCache.put('templates/widget.html',
     "<div class='widget' role='tabpanel'>\n" +
@@ -4259,4 +4325,4 @@ angular.module('angularis').run(['$templateCache', function($templateCache) {
 
 }]);
 
-},{}]},{},[3]);
+},{}]},{},[5]);

@@ -1,4 +1,52 @@
 
+.overlay {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.75s;
+  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+.overlay.vertical {
+  height: 0;
+  width: 100%;
+}
+.overlay.horizontal {
+  height: 100%;
+  width: 0;
+}
+.overlay .overlay-content {
+  position: relative;
+  top: 25%;
+  /* 25% from the top */
+  width: 100%;
+  /* 100% width */
+  text-align: center;
+  /* Centered text/links */
+  margin-top: 30px;
+  /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+.overlay.in {
+  border-bottom: 1px solid #000;
+}
+.overlay.in.vertical {
+  height: 100%;
+}
+.overlay.in.horizontal {
+  width: 100%;
+}
+.overlayed {
+  transition: 0.5s;
+  opacity: 1;
+}
+.overlayed.out {
+  opacity: 0;
+}
 .widget {
   position: relative;
   overflow-x: hidden;
