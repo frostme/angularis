@@ -16,7 +16,11 @@ or
 bower install angularis
 ```
 
-Then include `dist/angularis.min.css` and `dist/angularis.min.js` files.
+Then include `dist/angularis.min.css` and `dist/angularis.min.js` files, and inject angularis.
+
+```
+  app.module('yourModule', ['angularis']);
+```
 
 ## Usage
 
