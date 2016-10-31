@@ -5,6 +5,9 @@
   overflow-y: scroll;
   min-height: 200px;
   transition: height cubic-bezier(0.17, 0.67, 0.83, 0.67) 0.25s;
+  -webkit-transition: height cubic-bezier(0.17, 0.67, 0.83, 0.67) 0.25s;
+  -moz-transition: height cubic-bezier(0.17, 0.67, 0.83, 0.67) 0.25s;
+  -o-transition: height cubic-bezier(0.17, 0.67, 0.83, 0.67) 0.25s;
 }
 .widget .widget-page {
   opacity: 1;
@@ -25,4 +28,7 @@
 .widget .widget-page.ng-hide-add,
 .widget .widget-page.ng-hide-remove {
   transition: all linear 0.25s;
+  -webkit-transition: all linear 0.25s;
+  -moz-transition: all linear 0.25s;
+  -o-transition: all linear 0.25s;
 }
