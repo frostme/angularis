@@ -1,0 +1,34 @@
+{
+  "name": "angularis",
+  "version": "0.0.1",
+  "description": "Group of simple and fun angular directives",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frostme/angularis.git"
+  },
+  "keywords": [
+    "angular",
+    "directives",
+    "angularis"
+  ],
+  "author": "frostme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frostme/angularis/issues"
+  },
+  "homepage": "https://github.com/frostme/angularis#readme",
+  "devDependencies": {
+    "grunt-banner": "^0.6.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
+}

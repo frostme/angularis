@@ -1,0 +1,28 @@
+.widget {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  min-height: 200px;
+  transition: height cubic-bezier(.17,.67,.83,.67) 0.25s;
+  .widget-page {
+    opacity: 1;
+    position: absolute;
+    top: 15px;
+    left: 5%;
+    width: 90%;
+    &.ng-hide {
+      opacity: 0
+    }
+    &.left.ng-hide {
+      left: 100%;
+    }
+    &.right.ng-hide {
+      left: -100%;
+    }
+    &.ng-hide-add, &.ng-hide-remove {
+      transition: all linear 0.25s;
+    }
+  }
+}
+
+
