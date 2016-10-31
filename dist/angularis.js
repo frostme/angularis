@@ -86,6 +86,7 @@
 
 },{}],3:[function(require,module,exports){
 (function(){
+  var app = angular.module('angularis', []);
   require('./directives/widget');
   require('./directives/widgetPage');
 }());
