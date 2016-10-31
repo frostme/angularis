@@ -7,7 +7,7 @@ function OverlayDirective(){
     templateUrl: 'templates/overlay.html',
     scope: {
       showOverlay: '=',
-      style: '=?'
+      overlayStyle: '=?'
     },
     link: function($scope, element, attrs, ctrl){
     },

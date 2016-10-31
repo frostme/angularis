@@ -24,7 +24,25 @@ Then include `dist/angularis.min.css` and `dist/angularis.min.js` files, and inj
 
 ## Usage
 
+### overlay
+Simple complete overlay
+```html
+<overlay show-overlay='ctrl.showOverlay' overlay-style='"vertical"'>
+  Here is the overlay content
+</overlay>
+<div id='overlayed-item' overlayed='ctrl.showOverlay'>
+  Here is the overlayed content
+</div>
+
+```
+
+On overlay, simply bind a variable to show-overlay that when true shows overlay, and false hides it. An optional
+attribute overlay-style can be used to say whether you want vertical or horizontal overlay (default vertical).
+Optionally you can bind the show-overlay variable to another div's overlayed directive, say the overlayed content.
+This will fade out the overlayed content on overlay show.
 ### widget
+Simple carousel like action for divs.
+
 ```html
 <widget active-page="ctrl.activePageVariable">
   <widget-page>
