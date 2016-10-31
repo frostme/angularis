@@ -45,6 +45,12 @@ module.exports = function(grunt){
         src: 'index.js',
         dest: 'dist/angularis.js'
       }
+    },
+    ngtemplates: {
+      angularis: {
+        src: 'templates/**.html',
+        dest: 'templates.js'
+      }
     }
   });
 
@@ -52,9 +58,10 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-banner')
+  grunt.loadNpmTasks('grunt-banner');
+  grunt.loadNpmTasks('grunt-angular-templates');
 
-  grunt.registerTask('default', ['browserify', 'uglify']);
+  grunt.registerTask('default', ['ngtemplates', 'browserify', 'uglify']);
   grunt.registerTask('styles', ['less', 'cssmin']);
   grunt.registerTask('build', ['styles', 'default', 'usebanner']);
 };

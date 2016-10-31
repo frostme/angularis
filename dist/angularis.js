@@ -1,4 +1,3 @@
-
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function(){
   'use strict';
@@ -87,8 +86,29 @@
 },{}],3:[function(require,module,exports){
 (function(){
   var app = angular.module('angularis', []);
+  require('./templates.js');
   require('./directives/widget');
   require('./directives/widgetPage');
 }());
 
-},{"./directives/widget":1,"./directives/widgetPage":2}]},{},[3]);
+},{"./directives/widget":1,"./directives/widgetPage":2,"./templates.js":4}],4:[function(require,module,exports){
+angular.module('angularis').run(['$templateCache', function($templateCache) {
+  'use strict';
+
+  $templateCache.put('templates/widget.html',
+    "<div class='widget' role='tabpanel'>\n" +
+    "  <ng-transclude></ng-transclude>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('templates/widgetPage.html',
+    "<div role='tabpanel' class='widget-page'  ng-hide='activePage !== pageNumber' ng-class='{ active: (activePage === pageNumber), left: (activePage < pageNumber), right: (activePage > pageNumber) }'>\n" +
+    "  <div ng-transclude>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+}]);
+
+},{}]},{},[3]);
