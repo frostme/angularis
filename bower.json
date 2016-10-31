@@ -1,0 +1,23 @@
+{
+  "name": "angularis",
+  "description": "Group of simple and fun angular directives",
+  "main": "index.js",
+  "version": "0.1.0",
+  "authors": [
+    "frostme"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "directives",
+    "angularis"
+  ],
+  "homepage": "https://github.com/frostme/angularis",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
