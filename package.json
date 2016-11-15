@@ -1,6 +1,6 @@
 {
   "name": "angularis",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Group of simple and fun angular directives",
   "main": "index.js",
   "scripts": {

@@ -65,6 +65,20 @@ Only attribute to bind is the activePage - the currently active widget page. The
 the active page, simply switch the variable to the number of the page you want (0 index) like
 above.
 
+### hover-active
+Simple hover add active class
+
+```html
+<div class='panel' hover-active='ctrl.elementIsActive' active-class='isactive'>
+  When I am hovered over, then the "isactive" class is added to me
+</div>
+```
+
+Frist attribte to bind is the hoverActive - which is whether or not the element is active. When
+attribute is true, the active class is added. You can either change the attribute to true
+from parent controller, or just by default simply hover over the element. You can also
+specify the activeClass attribute, which is optional and by default is just "active".
+
 ## Contributing
 1. Fork off master,
 2. Create directive in directives.

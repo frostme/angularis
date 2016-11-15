@@ -2,6 +2,41 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var app = angular.module('angularis');
 
+function HoverActiveDirective(){
+  return {
+    restrict: 'A',
+    scope: {
+      hoverActive: '=',
+      activeClass: '=?'
+    },
+    link: function($scope, element, attrs){
+      $scope.activeClass = $scope.activeClass || 'active';
+
+      $(element).hover(function(){
+        $(element).addClass($scope.activeClass);
+      }, function(){
+        $(element).removeClass($scope.activeClass);
+      });
+
+      $scope.$watch('hoverActive', function(){
+        if($scope.hoverActive){
+          $(element).addClass($scope.activeClass);
+        } else {
+          $(element).removeClass($scope.activeClass);
+        }
+      });
+    }
+  };
+}
+
+HoverActiveDirective.$inject = [
+];
+
+app.directive('hoverActive', HoverActiveDirective);
+
+},{}],2:[function(require,module,exports){
+var app = angular.module('angularis');
+
 function OverlayDirective(){
   return {
     restrict: 'E',
@@ -26,7 +61,7 @@ OverlayDirective.$inject = [
 
 app.directive('overlay', OverlayDirective);
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 var app = angular.module('angularis');
 
 function OverlayedDirective(){
@@ -53,7 +88,7 @@ OverlayedDirective.$inject = [
 
 app.directive('overlayed', OverlayedDirective);
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var app = angular.module('angularis');
 
 function WidgetDirective(){
@@ -98,7 +133,7 @@ WidgetDirective.$inject = [
 
 app.directive('widget', WidgetDirective);
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var app = angular.module('angularis');
 
 function WidgetPageDirective(){
@@ -128,7 +163,7 @@ WidgetPageDirective.$inject = [
 
 app.directive('widgetPage', WidgetPageDirective);
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function(){
   'use strict';
 
@@ -148,9 +183,10 @@ app.directive('widgetPage', WidgetPageDirective);
   require('./directives/overlayed');
   require('./directives/widget');
   require('./directives/widgetPage');
+  require('./directives/hoverActive');
 }());
 
-},{"./directives/overlay":1,"./directives/overlayed":2,"./directives/widget":3,"./directives/widgetPage":4,"./templates.js":8,"angular-animate":7}],6:[function(require,module,exports){
+},{"./directives/hoverActive":1,"./directives/overlay":2,"./directives/overlayed":3,"./directives/widget":4,"./directives/widgetPage":5,"./templates.js":9,"angular-animate":8}],7:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.8
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -4291,11 +4327,11 @@ angular.module('ngAnimate', [], function initAngularHelpers() {
 
 })(window, window.angular);
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":6}],8:[function(require,module,exports){
+},{"./angular-animate":7}],9:[function(require,module,exports){
 angular.module('angularis').run(['$templateCache', function($templateCache) {
   'use strict';
 
@@ -4325,4 +4361,4 @@ angular.module('angularis').run(['$templateCache', function($templateCache) {
 
 }]);
 
-},{}]},{},[5]);
+},{}]},{},[6]);
