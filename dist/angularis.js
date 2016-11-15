@@ -101,6 +101,48 @@ app.directive('widget', WidgetDirective);
 },{}],4:[function(require,module,exports){
 var app = angular.module('angularis');
 
+function WidgetFooterDirective(){
+  return {
+    restrict: 'E',
+    transclude: true,
+    templateUrl: 'templates/widgetFooter.html',
+    require: '^widget',
+    scope: {
+    },
+    link: function($scope, element, attrs, widgetCtrl){
+    }
+  };
+}
+
+WidgetFooterDirective.$inject = [
+];
+
+app.directive('widgetFooter', WidgetFooterDirective);
+
+},{}],5:[function(require,module,exports){
+var app = angular.module('angularis');
+
+function WidgetHeaderDirective(){
+  return {
+    restrict: 'E',
+    transclude: true,
+    templateUrl: 'templates/widgetHeader.html',
+    require: '^widget',
+    scope: {
+    },
+    link: function($scope, element, attrs, widgetCtrl){
+    }
+  };
+}
+
+WidgetHeaderDirective.$inject = [
+];
+
+app.directive('widgetHeader', WidgetHeaderDirective);
+
+},{}],6:[function(require,module,exports){
+var app = angular.module('angularis');
+
 function WidgetPageDirective(){
   return {
     restrict: 'E',
@@ -128,7 +170,7 @@ WidgetPageDirective.$inject = [
 
 app.directive('widgetPage', WidgetPageDirective);
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 (function(){
   'use strict';
 
@@ -148,9 +190,12 @@ app.directive('widgetPage', WidgetPageDirective);
   require('./directives/overlayed');
   require('./directives/widget');
   require('./directives/widgetPage');
+  require('./directives/widgetHeader');
+  require('./directives/widgetFooter');
+
 }());
 
-},{"./directives/overlay":1,"./directives/overlayed":2,"./directives/widget":3,"./directives/widgetPage":4,"./templates.js":8,"angular-animate":7}],6:[function(require,module,exports){
+},{"./directives/overlay":1,"./directives/overlayed":2,"./directives/widget":3,"./directives/widgetFooter":4,"./directives/widgetHeader":5,"./directives/widgetPage":6,"./templates.js":10,"angular-animate":9}],8:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.8
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -4291,11 +4336,11 @@ angular.module('ngAnimate', [], function initAngularHelpers() {
 
 })(window, window.angular);
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":6}],8:[function(require,module,exports){
+},{"./angular-animate":8}],10:[function(require,module,exports){
 angular.module('angularis').run(['$templateCache', function($templateCache) {
   'use strict';
 
@@ -4316,6 +4361,22 @@ angular.module('angularis').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('templates/widgetFooter.html',
+    "<div role='tabpanel' class='widget-footer'>\n" +
+    "  <div ng-transclude>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('templates/widgetHeader.html',
+    "<div role='tabpanel' class='widget-header'>\n" +
+    "  <div ng-transclude>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+
   $templateCache.put('templates/widgetPage.html',
     "<div role='tabpanel' class='widget-page'  ng-hide='activePage !== pageNumber' ng-class='{ active: (activePage === pageNumber), left: (activePage < pageNumber), right: (activePage > pageNumber) }'>\n" +
     "  <div ng-transclude>\n" +
@@ -4325,4 +4386,4 @@ angular.module('angularis').run(['$templateCache', function($templateCache) {
 
 }]);
 
-},{}]},{},[5]);
+},{}]},{},[7]);

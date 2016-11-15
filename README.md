@@ -45,6 +45,25 @@ Simple carousel like action for divs.
 
 ```html
 <widget active-page="ctrl.activePageVariable">
+  <widget-header>
+    <ul class='nav'>
+      <li>
+        <a ng-click='ctrl.activePageVariable = 0'>
+          Page 1
+        </a>
+      </li>
+      <li>
+        <a ng-click='ctrl.activePageVariable = 0'>
+          Page 1
+        </a>
+      </li>
+      <li>
+        <a ng-click='ctrl.activePageVariable = 0'>
+          Page 1
+        </a>
+      </li>
+    </ul>
+  </widget-header>
   <widget-page>
     <p>I am page 1</p>
     <a ng-click='ctrl.activePageVariable = 1'>Click here to go to page 2</a>
@@ -58,12 +77,16 @@ Simple carousel like action for divs.
     <p>I am page 3</p>
     <a ng-click='ctrl.activePageVariable = 1'>Click here to go to page 2 again</a>
   </widget-page>
+  <widget-footer>
+    Some simple information
+  </widget-footer>
 </widget>
 ```
 
 Only attribute to bind is the activePage - the currently active widget page. Then to switch
 the active page, simply switch the variable to the number of the page you want (0 index) like
-above.
+above. Widget Header and Widget Footer are both optional if you would like items that are associtaed
+with the widget (are within the widget element) but do not transition or slide with the widget pages.
 
 ## Contributing
 1. Fork off master,

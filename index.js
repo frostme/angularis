@@ -17,4 +17,7 @@
   require('./directives/overlayed');
   require('./directives/widget');
   require('./directives/widgetPage');
+  require('./directives/widgetHeader');
+  require('./directives/widgetFooter');
+
 }());

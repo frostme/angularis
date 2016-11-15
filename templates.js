@@ -18,6 +18,22 @@ angular.module('angularis').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('templates/widgetFooter.html',
+    "<div role='tabpanel' class='widget-footer'>\n" +
+    "  <div ng-transclude>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('templates/widgetHeader.html',
+    "<div role='tabpanel' class='widget-header'>\n" +
+    "  <div ng-transclude>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+
   $templateCache.put('templates/widgetPage.html',
     "<div role='tabpanel' class='widget-page'  ng-hide='activePage !== pageNumber' ng-class='{ active: (activePage === pageNumber), left: (activePage < pageNumber), right: (activePage > pageNumber) }'>\n" +
     "  <div ng-transclude>\n" +
