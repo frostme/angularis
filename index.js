@@ -17,4 +17,5 @@
   require('./directives/overlayed');
   require('./directives/widget');
   require('./directives/widgetPage');
+  require('./directives/hoverActive');
 }());
