@@ -4,10 +4,11 @@ function HoverActiveDirective(){
   return {
     restrict: 'A',
     scope: {
-      hoverActive: '=',
+      hoverActive: '=?',
       activeClass: '=?'
     },
     link: function($scope, element, attrs){
+      $scope.hoverAcitve = $scope.hoverActive || false;
       $scope.activeClass = $scope.activeClass || 'active';
 
       $(element).hover(function(){
