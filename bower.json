@@ -2,7 +2,7 @@
   "name": "angularis",
   "description": "Group of simple and fun angular directives",
   "main": "index.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authors": [
     "frostme"
   ],
